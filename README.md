@@ -1,0 +1,2 @@
+# Schoolino
+smart school
