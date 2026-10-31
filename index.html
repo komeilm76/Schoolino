@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="fa" dir="rtl" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>اسکولینو | بهتر یاد بگیر، جلوتر برو</title>
+    <meta
+      name="description"
+      content="اسکولینو، پلتفرم آموزش آنلاین پایه اول تا دوازدهم؛ ویدیوهای درس‌به‌درس، حل تمرین گام‌به‌گام، آزمون‌ساز هوشمند و اساتید باتجربه."
+    />
+    <meta name="theme-color" content="#faf7f1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fa_IR" />
+    <meta property="og:title" content="اسکولینو | بهتر یاد بگیر، جلوتر برو" />
+    <meta
+      property="og:description"
+      content="ویدیوهای درس‌به‌درس، آزمون‌ساز هوشمند و اساتید باتجربه برای پایه‌های اول تا دوازدهم."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script>
+      // Apply the saved (or system) theme before first paint to avoid a flash.
+      ;(function () {
+        try {
+          var stored = localStorage.getItem('schoolino:theme')
+          var prefersDark =
+            window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+          var theme = stored === 'light' || stored === 'dark' ? stored : prefersDark ? 'dark' : 'light'
+          document.documentElement.dataset.theme = theme
+          document.documentElement.style.colorScheme = theme
+        } catch (error) {
+          /* localStorage can be blocked — the light theme stays as default. */
+        }
+      })()
+    </script>
+
+    <noscript>
+      <style>
+        /* Without JS the reveal directive never runs: keep all content visible. */
+        .reveal,
+        .reveal-blur {
+          opacity: 1 !important;
+          transform: none !important;
+          filter: none !important;
+        }
+      </style>
+    </noscript>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
