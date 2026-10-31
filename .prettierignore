@@ -1,0 +1,9 @@
+node_modules
+dist
+.venv
+test-results
+playwright-report
+bun.lock
+package-lock.json
+initial_prompt.md
+public
