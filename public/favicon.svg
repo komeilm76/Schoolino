@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Schoolino">
+  <rect width="64" height="64" rx="16" fill="#5741d6" />
+  <path
+    d="M32 15 48 23.5 32 32 16 23.5 32 15Z"
+    fill="#f4a62a"
+  />
+  <path
+    d="M20 29v11.5c0 3.6 5.4 6.5 12 6.5s12-2.9 12-6.5V29l-12 6.4L20 29Z"
+    fill="#faf7f1"
+  />
+  <path d="M46 26v11" stroke="#faf7f1" stroke-width="2.4" stroke-linecap="round" />
+</svg>

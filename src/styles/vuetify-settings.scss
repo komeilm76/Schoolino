@@ -1,0 +1,10 @@
+/**
+ * Vuetify SASS settings for Schoolino.
+ *
+ * `$layers: true` wraps all Vuetify CSS in `@layer vuetify`, so Tailwind
+ * utilities (declared in a later layer) can override Vuetify styles when we
+ * explicitly need to. Layer order is declared in `src/styles/main.css`.
+ */
+@use 'vuetify/settings' with (
+  $layers: true
+);
