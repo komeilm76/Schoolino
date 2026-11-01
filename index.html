@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#03132d">
+  <meta name="description" content="آوین؛ اکوسیستم یکپارچه آموزش، هوش مصنوعی، فناوری اطلاعات، رسانه آموزشی و توسعه مسیر شغلی.">
+  <title>آوین | آینده را هوشمندانه می‌سازیم</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/hero/hero-illustration-composed.png">
+  <style>
+    :root{
+      color-scheme:dark;
+      --base:#03132d;--base-dark:#01112b;--cyan:#04e7f3;--cyan-soft:#85f9ff;
+      --blue:#068efc;--text:#f8faff;--muted:#d6def5;--max:1460px;
+      --ease:cubic-bezier(.22,1,.36,1);
+    }
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:85px}
+    body{margin:0;overflow-x:hidden;color:var(--text);background:var(--base-dark);font-family:Vazirmatn,"Noto Sans Arabic",Tahoma,sans-serif;-webkit-font-smoothing:antialiased}
+    img{display:block;max-width:100%} a{color:inherit;text-decoration:none} button{font:inherit;cursor:pointer}
+    a:focus-visible,button:focus-visible{outline:2px solid var(--cyan-soft);outline-offset:4px}
+    .container{width:min(var(--max),calc(100% - 188px));margin-inline:auto}
+    .skip{position:absolute;right:20px;top:-70px;z-index:110;padding:8px 13px;border-radius:10px;background:var(--cyan);color:#04132a}
+    .skip:focus{top:8px}
+    .site{min-height:100dvh;overflow:hidden}
+
+    /* Header: logo on the right, navigation centered, slogan on the left. */
+    .header{height:78px;position:relative;z-index:30;border-bottom:1px solid rgba(61,126,217,.33);background:linear-gradient(180deg,#031631 0%,#03102b 100%)}
+    .header-inner{width:min(1518px,calc(100% - 150px));height:100%;display:grid;grid-template-columns:200px minmax(0,1fr) 282px;gap:10px;align-items:center}
+    .brand{margin-inline-start:25px;width:185px;height:70px;display:flex;align-items:center;position:relative;isolation:isolate}
+    .brand::after{content:"";position:absolute;left:-22px;top:14px;height:42px;width:2px;background:#f0f7ff;opacity:.8}
+    .brand::before{content:"";position:absolute;inset:12px 0;z-index:-1;filter:blur(18px);background:rgba(3,33,83,.38)}
+    .brand img{width:184px;height:auto;object-fit:contain}
+    .navigation{height:100%;display:flex;align-items:center;justify-content:center;gap:clamp(23px,3.1vw,55px);white-space:nowrap}
+    .navigation a{height:100%;position:relative;display:flex;align-items:center;font-weight:800;font-size:18px;color:#f3f3ff;transition:color .2s ease,text-shadow .2s ease}
+    .navigation a:hover,.navigation a.active{color:var(--cyan);text-shadow:0 0 11px rgba(4,231,243,.28)}
+    .navigation a.active::after{content:"";position:absolute;bottom:11px;right:-1px;left:-1px;height:4px;background:var(--cyan);box-shadow:0 0 13px rgba(0,235,255,.8)}
+    .header-left{height:100%;display:flex;align-items:center;gap:28px;justify-content:flex-end}
+    .header-left::before{content:"";width:2px;height:42px;background:linear-gradient(#f9faff,#d1dffb);order:-1;opacity:.85;display:none}
+    .slogan{width:280px;height:50px;flex:none;display:flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;border:1.5px solid #17c8ff;background:linear-gradient(180deg,rgba(3,32,75,.94),rgba(2,15,45,.99));box-shadow:inset 0 1px 8px rgba(0,158,255,.2),0 0 13px rgba(0,187,255,.57),0 2px 5px rgba(0,178,255,.18);font-weight:900;font-size:25px;letter-spacing:-.025em;line-height:1;color:#ebf9ff;transition:box-shadow .25s ease,transform .25s ease}
+    .slogan:hover{box-shadow:inset 0 1px 9px rgba(0,208,255,.25),0 0 26px rgba(0,225,255,.64);transform:translateY(-1px)}
+    .slogan .cyan-word{color:#02edf3;text-shadow:0 0 9px rgba(0,243,255,.32)}
+    .slogan .target{width:42px;height:42px;flex:none;overflow:visible;filter:drop-shadow(0 0 5px rgba(0,213,252,.7))}
+    .menu-button{display:none;width:43px;height:43px;align-items:center;justify-content:center;border:1px solid rgba(8,221,250,.63);background:#041a38;border-radius:12px;color:var(--cyan)}
+    .menu-button svg{width:25px;height:25px}
+    .mobile-menu{display:none}
+
+    /* Hero artwork remains an entire high-resolution image, never cropped. */
+    .hero{height:506px;position:relative;z-index:31;isolation:isolate;background:#02112c;overflow:visible}
+    .hero::before{content:"";inset:0;position:absolute;z-index:-3;background-image:linear-gradient(180deg,rgba(0,11,35,.19) 0%,rgba(0,13,38,.06) 60%,rgba(0,8,35,.1) 100%),url("assets/backgrounds/hero-starry-mountains.png");background-size:cover,100% 100%;background-position:center;opacity:.92}
+    .hero::after{content:"";position:absolute;z-index:0;bottom:-5px;left:0;right:0;height:166px;pointer-events:none;background:url("assets/decorations/neon-data-wave-transparent.png") center bottom / 100% 100% no-repeat;opacity:.72;filter:drop-shadow(0 0 7px rgba(0,125,255,.46))}
+    .hero-sky{position:absolute;inset:0;pointer-events:none;z-index:-2;background:radial-gradient(ellipse 50% 43% at 28% 76%,rgba(9,72,158,.3),transparent 93%),radial-gradient(ellipse 47% 65% at 78% 60%,rgba(0,14,40,.46),transparent 100%)}
+    .hero-inner{height:100%;position:relative;display:grid;grid-template-columns:42% 58%;direction:rtl}
+    .hero-copy{z-index:4;position:relative;align-self:start;text-align:right;padding-top:83px;min-width:0;transform:translateX(2px)}
+    .strokes{display:flex;gap:8px;width:max-content;margin-bottom:9px;margin-inline-start:4px;direction:rtl}
+    .strokes span{width:54px;height:3px;background:#01e3f6;box-shadow:0 0 9px rgba(4,231,243,.72)}
+    .strokes span:last-child{background:#0875d8}
+    .hero h1{margin:0;display:flex;flex-direction:column;align-items:flex-start;font-weight:900;white-space:nowrap}
+    .hero h1 .first{font-size:clamp(46px,3.88vw,65px);line-height:1.26;color:#fafdff;letter-spacing:-.045em;text-shadow:0 3px 4px rgba(3,11,28,.3)}
+    .hero h1 .second{font-size:clamp(43px,3.43vw,57px);line-height:1.36;color:#00e4f1;letter-spacing:-.045em;text-shadow:0 0 13px rgba(0,219,253,.2)}
+    .hero-description{font-size:clamp(18px,1.38vw,23px);font-weight:800;line-height:1.78;color:#e0e7fa;max-width:595px;margin:19px 0 22px;text-wrap:balance}
+    .hero-actions{display:flex;align-items:center;gap:12px;white-space:nowrap}
+    .btn{min-height:61px;display:inline-flex;align-items:center;justify-content:space-between;gap:15px;border-radius:999px;padding:0 27px;font-size:18px;font-weight:900;line-height:1.3;transition:background .22s ease,box-shadow .22s ease,transform .22s ease}
+    .btn:hover{transform:translateY(-2px)}
+    .btn svg{width:26px;height:26px;flex:none}
+    .btn-main{width:242px;color:#001527;background:linear-gradient(116deg,#04def0 0%,#0be7ef 72%,#5afaff 100%);box-shadow:0 0 14px rgba(0,215,247,.16),inset 0 2px 4px rgba(255,255,255,.22)}
+    .btn-main:hover{box-shadow:0 0 28px rgba(0,229,251,.36)}
+    .btn-outline{width:226px;border:3px solid #00dff7;color:#fbfdff;background:rgba(1,17,41,.72);box-shadow:0 0 9px rgba(0,214,255,.6),inset 0 0 9px rgba(0,138,220,.13)}
+    .btn-outline:hover{background:rgba(0,125,191,.22);box-shadow:0 0 24px rgba(0,214,255,.32)}
+    .btn-outline .email-icon{color:#04eaf7}
+    .hero-art-space{position:relative;height:100%;min-width:0;direction:ltr}
+    .art-stage{position:absolute;top:0;bottom:0;left:0;right:0;pointer-events:none;direction:ltr}
+    .art-main{position:absolute;left:14.2%;top:-2.5%;width:70.3%;height:auto;max-width:none;object-fit:contain;filter:drop-shadow(0 0 8px rgba(0,115,255,.15));animation:art-appear 1s var(--ease) both}
+    .orbit-tag{position:absolute;display:flex;justify-content:center;align-items:center;text-align:center;padding:4px 10px;min-height:43px;border-radius:999px;border:1.5px solid rgba(0,170,255,.9);background:linear-gradient(140deg,rgba(3,28,66,.96),rgba(1,14,39,.97));box-shadow:inset 0 1px 6px rgba(10,136,247,.19),0 0 9px rgba(0,140,255,.36);color:#f7f9ff;font-size:17px;font-weight:800;line-height:1.45;direction:rtl;white-space:nowrap;z-index:3}
+    .orbit-tag.education{left:55%;top:3.5%;width:111px}
+    .orbit-tag.ai{left:82%;top:30%;width:155px}
+    .orbit-tag.technology{left:78.3%;top:73.5%;width:156px}
+    .orbit-tag.media{left:1.5%;top:74%;width:171px}
+    .orbit-tag.career{left:0%;top:34%;width:158px;min-height:69px;white-space:normal;border-radius:23px}
+    .spark{position:absolute;width:4px;height:4px;border-radius:50%;background:#aafaff;box-shadow:0 0 12px 5px rgba(0,187,255,.56);animation:twinkle 3.9s ease-in-out infinite;opacity:.25}
+    .spark.a{left:32%;top:11%;animation-delay:.3s}.spark.b{left:70%;top:19%;animation-delay:1.3s}.spark.c{left:17%;top:65%;animation-delay:2.1s}
+
+    /* Section and cards: illustrations are contained, no object-cover or clipping. */
+    .ecosystem{position:relative;isolation:isolate;min-height:357px;overflow:hidden;padding:13px 0 32px;background:linear-gradient(180deg,#061a39 0%,#03132f 100%)}
+    .ecosystem::before{content:"";position:absolute;inset:0;z-index:-1;background:url("assets/backgrounds/section-dotted-navy.png") center top/100% 390px no-repeat;opacity:.58}
+    .intro{text-align:center}
+    .section-mark{height:4px;width:50px;background:#03e5f4;display:block;border-radius:3px;box-shadow:0 0 8px rgba(0,227,251,.6);margin:0 auto 9px}
+    .intro h2{font-size:32px;line-height:1.55;font-weight:900;margin:0;color:#f9faff}
+    .intro p{font-size:16px;line-height:1.7;font-weight:600;color:#d5ddf4;margin:0 auto 7px}
+    .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    .card{position:relative;height:214px;min-width:0;overflow:hidden;border-radius:17px;border:1.5px solid #059fe7;background:linear-gradient(140deg,#102d60 0%,#081d43 27%,#04132e 100%);box-shadow:inset 0 0 20px rgba(0,104,255,.15),0 0 8px rgba(0,182,255,.16);transition:transform .24s var(--ease),border-color .24s ease,box-shadow .24s ease}
+    .card:hover{transform:translateY(-3px);border-color:#23e6ff;box-shadow:inset 0 0 22px rgba(0,104,255,.2),0 0 21px rgba(0,208,255,.23)}
+    .card::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;box-shadow:inset 0 1px 0 rgba(122,225,255,.18)}
+    .card-copy{position:absolute;top:19px;left:19px;bottom:21px;width:56%;z-index:3;text-align:right;display:flex;flex-direction:column;align-items:flex-start}
+    .card-head{display:flex;align-items:center;gap:8px;min-height:39px;width:max-content;max-width:calc(100% + 45px);direction:rtl;transform:translateX(34px)}
+    .card-head img{width:37px;height:39px;object-fit:contain;flex:none}
+    .card h3{margin:0;font-size:14.2px;line-height:1.55;font-weight:900;white-space:nowrap}
+    .card p{color:#e8ecff;font-size:14px;font-weight:600;line-height:1.76;margin:10px 0 0;max-width:275px;text-wrap:pretty}
+    .card a.more{color:#02eafb;display:inline-flex;align-items:center;gap:10px;white-space:nowrap;font-weight:900;font-size:15px;margin-top:auto;transition:color .2s ease,transform .2s ease}
+    .card a.more:hover{color:#a9faff;transform:translateX(-3px)}
+    .card a.more svg{width:19px;height:19px;flex:none}
+    .card-illustration{position:absolute;right:7px;bottom:12px;width:35%;height:174px;display:flex;align-items:flex-end;justify-content:center;z-index:2;pointer-events:none;filter:drop-shadow(0 0 9px rgba(21,143,255,.17));transition:transform .24s var(--ease)}
+    .card:hover .card-illustration{transform:translateY(-4px)}
+    .card-illustration img{display:block;width:100%;height:100%;object-fit:contain;object-position:50% 100%}
+    .card.ai-card .card-illustration{width:37%;height:166px;right:5px;bottom:12px}
+    .card.edu-card .card-illustration{width:36%;height:177px;right:5px;bottom:10px}
+
+    /* A small real contact interaction, without invented contact details. */
+    dialog{width:min(450px,calc(100% - 32px));max-height:calc(100dvh - 32px);border:1px solid #05c9f8;border-radius:19px;padding:26px;background:#061b3d;color:#fff;box-shadow:0 24px 70px rgba(0,0,18,.6)}
+    dialog::backdrop{background:rgba(0,6,24,.76);backdrop-filter:blur(6px)}
+    dialog h2{font-size:24px;color:var(--cyan);margin:0 0 10px}dialog p{font-size:15px;line-height:2;margin:0 0 23px}dialog .close{width:100%;background:#04e7f3;color:#00192a;min-height:45px;border:0;border-radius:999px;font-weight:900}
+    .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+    @keyframes art-appear{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+    @keyframes enter{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes twinkle{0%,100%{opacity:.15}50%{opacity:1}}
+    @media(prefers-reduced-motion:no-preference){
+      .brand,.slogan{animation:enter .55s var(--ease) both}
+      .hero h1 .first{animation:enter .8s var(--ease) .25s both}
+      .hero h1 .second{animation:enter .8s var(--ease) .38s both}
+      .hero-description{animation:enter .7s var(--ease) .65s both}
+      .hero-actions{animation:enter .6s var(--ease) .83s both}
+      .card{animation:enter .65s var(--ease) both;animation-delay:calc(.72s + var(--i)*.11s)}
+    }
+    /* Large-to-medium desktop preserves all artwork by shrinking its container, not cropping it. */
+    @media (min-width:1581px){.brand{transform:translateX(23px)}.hero-copy{transform:translateX(22px)}}
+    @media (min-width:1200px){.navigation{transform:translateX(72px)}}
+    @media (min-width:1200px) and (max-width:1580px){
+      .container{width:calc(100% - 104px)}
+      .header-inner{grid-template-columns:170px minmax(0,1fr) 244px}
+      .brand,.brand img{width:165px}.brand{margin-inline-start:0}.navigation{transform:translateX(45px)}
+      .slogan{width:242px;font-size:21px;height:46px}
+      .slogan .target{width:36px;height:36px}
+      .navigation{gap:clamp(18px,2.7vw,43px)}.navigation a{font-size:16px}
+      .hero h1 .first{font-size:clamp(44px,3.93vw,61px)}
+      .hero h1 .second{font-size:clamp(42px,3.75vw,60px)}
+      .hero-description{font-size:clamp(17px,1.45vw,21px)}
+      .btn{font-size:16px;padding-inline:18px}.btn-main{width:213px}.btn-outline{width:200px}
+      .orbit-tag{font-size:clamp(11px,1.2vw,15px)}
+      .orbit-tag.ai,.orbit-tag.technology{width:143px}
+      .orbit-tag.career{width:139px}.orbit-tag.media{width:155px}
+      .card h3{font-size:14px}.card p{font-size:13px}.card-copy{left:15px;width:66%}
+    }
+    @media(max-width:1199px){
+      .container{width:calc(100% - 64px)}
+      .header{height:74px;z-index:45}.header-inner{width:calc(100% - 64px);display:flex;gap:14px;justify-content:space-between}
+      .navigation{display:none}.brand::after{display:none}.brand{width:160px;margin-inline-start:0}.brand img{width:160px}
+      .header-left{margin-inline-start:auto;gap:12px}
+      .slogan{font-size:19px;width:224px;height:45px}.slogan .target{width:35px;height:35px}
+      .menu-button{display:inline-flex}
+      .mobile-menu{position:absolute;top:calc(100% + 6px);right:32px;left:32px;z-index:50;padding:13px;border:1px solid rgba(0,221,249,.5);border-radius:16px;background:rgba(2,20,47,.97);box-shadow:0 20px 46px rgba(0,0,16,.6);backdrop-filter:blur(14px)}
+      .header[data-open="true"] .mobile-menu{display:flex;flex-direction:column}
+      .mobile-menu a{padding:12px 16px;border-radius:9px;font-weight:700}
+      .mobile-menu a:hover{background:rgba(1,153,211,.18);color:var(--cyan)}
+      .hero{height:470px}.hero-inner{grid-template-columns:44% 56%}
+      .hero-copy{padding-top:68px}
+      .hero h1 .first{font-size:clamp(38px,4vw,53px)}
+      .hero h1 .second{font-size:clamp(34px,3.6vw,48px)}
+      .hero-description{font-size:clamp(16px,1.8vw,19px);line-height:1.8}
+      .btn{min-height:49px;font-size:14px;padding-inline:12px;gap:9px}
+      .btn svg{width:21px;height:21px}.btn-main{width:196px}.btn-outline{width:180px}
+      .art-main{left:11%;top:1%;width:78%}
+      .orbit-tag{font-size:clamp(10px,1.13vw,14px);min-height:32px;padding:3px 7px}
+      .orbit-tag.education{width:84px}.orbit-tag.ai,.orbit-tag.technology{width:124px}
+      .orbit-tag.media{width:129px;left:0}.orbit-tag.career{width:116px;min-height:52px}
+      .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .card:last-child{grid-column:1/-1;width:calc(50% - 7px);justify-self:center}
+      .intro{padding-top:4px}
+    }
+    @media(max-width:900px){
+      .hero{height:auto;padding-bottom:10px}
+      .hero-inner{display:flex;flex-direction:column;align-items:center}
+      .hero-copy{padding-top:29px;display:flex;flex-direction:column;align-items:center;text-align:center}
+      .strokes{margin-inline:auto;margin-bottom:4px}
+      .hero h1{align-items:center;white-space:normal}
+      .hero h1 .first{font-size:clamp(38px,6vw,55px);line-height:1.4}
+      .hero h1 .second{font-size:clamp(35px,5.8vw,54px);line-height:1.4}
+      .hero-description{text-align:center;max-width:620px;margin:8px 0 16px}
+      .hero-art-space{width:min(760px,100%);height:auto;aspect-ratio:850/506;flex:none}
+      .art-stage{height:100%}.art-main{width:73%;left:13.5%;top:-3%}
+      .hero::after{height:115px}
+    }
+    @media(max-width:767px){
+      .container{width:calc(100% - 34px)}
+      .header{height:67px}.brand{width:120px;height:60px}.brand img{width:120px}
+      .header-left{gap:8px}.slogan{width:auto;min-width:0;height:38px;font-size:clamp(11px,3vw,17px);gap:5px;padding-inline:9px;border-width:1px;box-shadow:0 0 9px rgba(0,190,255,.3)}
+      .slogan .target{width:27px;height:27px}.menu-button{width:39px;height:39px}
+      .mobile-menu{right:17px;left:17px}
+      .hero-copy{padding-top:23px}
+      .hero h1 .first{font-size:clamp(33px,7.7vw,49px)}
+      .hero h1 .second{font-size:clamp(30px,6.8vw,46px)}
+      .hero-description{font-size:clamp(14px,3.3vw,17px);line-height:1.85;margin:8px 3px 14px}
+      .hero-actions{gap:8px;width:100%;justify-content:center}
+      .btn{min-height:46px;font-size:clamp(11px,2.9vw,14px);padding-inline:12px;gap:7px}
+      .btn-main{width:auto;min-width:0;flex:1;max-width:190px}.btn-outline{width:auto;min-width:0;flex:1;max-width:170px;border-width:2px}
+      .btn svg{width:18px;height:18px}
+      .hero-art-space{width:100%;aspect-ratio:850/515;margin-top:3px}
+      .art-main{width:75%;left:12.5%;top:0}
+      .orbit-tag{min-height:22px;font-size:clamp(7px,1.65vw,11px);padding:1px 3px;border-width:1px;box-shadow:0 0 5px rgba(0,147,240,.24)}
+      .orbit-tag.education{width:17%;top:6%;left:54%}
+      .orbit-tag.ai{width:21%;top:30%;left:77%}
+      .orbit-tag.technology{width:23%;top:73%;left:75%}
+      .orbit-tag.media{width:22%;top:75%;left:1%}
+      .orbit-tag.career{width:22%;top:34%;min-height:34px;left:0;border-radius:12px}
+      .hero::after{height:82px;opacity:.55}
+      .ecosystem{padding:21px 0 25px}
+      .section-mark{width:43px;height:3px;margin-bottom:8px}
+      .intro h2{font-size:clamp(23px,5vw,29px)}
+      .intro p{font-size:13px;line-height:1.9;margin-bottom:18px}
+      .cards{grid-template-columns:1fr;gap:12px}
+      .card,.card:last-child{height:214px;grid-column:auto;width:100%;max-width:none}
+      .card-copy{top:18px;left:17px;bottom:17px;width:54%}
+      .card-head img{width:31px;height:34px}.card-head{gap:5px;transform:none;width:100%;max-width:100%}.card h3{white-space:normal;min-width:0;font-size:clamp(12px,3.0vw,15px);line-height:1.45}
+      .card p{font-size:clamp(11px,2.9vw,14px);line-height:1.8;margin-top:8px}
+      .card-illustration{width:33%;height:165px;right:6px;bottom:10px}
+      .card.ai-card .card-illustration{width:35%;height:161px}
+      .card.edu-card .card-illustration{width:34%;height:165px}
+    }
+    @media(max-width:390px){
+      .brand,.brand img{width:103px}
+      .slogan{font-size:11px;padding-inline:7px}.slogan .target{width:24px;height:24px}
+      .hero h1 .second{font-size:clamp(27px,7vw,32px)}
+      .btn{padding-inline:9px;font-size:11px}.btn svg{width:16px}
+      .card,.card:last-child{height:233px}.card-copy{left:12px;width:55%}.card h3{font-size:11.7px}.card-head{gap:4px}
+      .card p{font-size:11px;line-height:1.75}
+    }
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip">رفتن به محتوای اصلی</a>
+  <div class="site" id="home">
+    <header class="header" id="header" data-open="false">
+      <div class="container header-inner">
+        <a class="brand" href="#home" aria-label="آوین، صفحه اصلی">
+          <img src="assets/brand/avin-logo-transparent.png" width="594" height="231" alt="نشان و نام آوین" fetchpriority="high">
+        </a>
+        <nav class="navigation" aria-label="ناوبری اصلی">
+          <a class="active" href="#home" aria-current="page" style="--i:0">خانه</a>
+          <a href="#about" style="--i:1">درباره آوین</a>
+          <a href="#services" style="--i:2">حوزه‌های فعالیت</a>
+          <a href="#services" style="--i:3">راهکارها</a>
+          <a href="#contact" data-contact style="--i:4">تماس با ما</a>
+        </nav>
+        <div class="header-left">
+          <a class="slogan" href="#about" aria-label="با هدف تا هدف — آشنایی با آوین">
+            <span>با <span class="cyan-word">هدف</span> تا <span class="cyan-word">هدف</span></span>
+            <svg class="target" viewBox="0 0 48 48" aria-hidden="true" fill="none">
+              <circle cx="22" cy="26" r="19.2" stroke="#02E9F5" stroke-width="3.4"/>
+              <circle cx="22" cy="26" r="12.8" stroke="#13BFFD" stroke-width="3.4"/>
+              <circle cx="22" cy="26" r="6" stroke="#79FFFF" stroke-width="3.3"/>
+              <path d="M22 26 38 8" stroke="#FFE886" stroke-width="3.8" stroke-linecap="round"/>
+              <path d="M35 7 43 3 40 12 34 13Z" fill="#FFD035" stroke="#FFC538" stroke-width="1.2"/>
+            </svg>
+          </a>
+          <button class="menu-button" type="button" id="menu-button" aria-controls="mobile-menu" aria-expanded="false" aria-label="باز کردن فهرست">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+      <nav class="mobile-menu" id="mobile-menu" aria-label="منوی موبایل" inert>
+        <a href="#home">خانه</a><a href="#about">درباره آوین</a><a href="#services">حوزه‌های فعالیت</a><a href="#services">راهکارها</a><a href="#contact" data-contact>تماس با ما</a>
+      </nav>
+    </header>
+    <main id="main-content">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-sky" aria-hidden="true"></div>
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <div class="strokes" aria-hidden="true"><span></span><span></span></div>
+            <h1 id="hero-title"><span class="first">آینده را</span><span class="second">هوشمندانه می‌سازیم</span></h1>
+            <p class="hero-description">آموزش، هوش مصنوعی، فناوری اطلاعات،<br class="hero-desktop-break"> رسانه آموزشی و توسعه مسیر شغلی</p>
+            <div class="hero-actions">
+              <a class="btn btn-main" href="#services">آشنایی با خدمات
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5m7-7-7 7 7 7"/></svg>
+              </a>
+              <a class="btn btn-outline" href="#contact" data-contact>ارتباط با ما
+                <svg class="email-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="1.2"/><path d="m3 5 9 8 9-8"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="hero-art-space" aria-label="کره درخشان آوین و پنج حوزه فعالیت پیرامون آن">
+            <div class="art-stage">
+              <img class="art-main" src="assets/hero/hero-illustration-composed.png" alt="کره هولوگرافیک آوین همراه با نمادهای آموزش، هوش مصنوعی، فناوری اطلاعات، رسانه آموزشی و توسعه مسیر شغلی" width="1230" height="1032" fetchpriority="high">
+              <span class="orbit-tag education">آموزش</span>
+              <span class="orbit-tag ai">هوش مصنوعی</span>
+              <span class="orbit-tag technology">فناوری اطلاعات</span>
+              <span class="orbit-tag media">رسانه آموزشی</span>
+              <span class="orbit-tag career">کاریابی و توسعه<br>مسیر شغلی</span>
+              <i class="spark a" aria-hidden="true"></i><i class="spark b" aria-hidden="true"></i><i class="spark c" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="ecosystem" id="about" aria-labelledby="ecosystem-title">
+        <div class="container">
+          <div class="intro"><span class="section-mark" aria-hidden="true"></span><h2 id="ecosystem-title">یک اکوسیستم، سه مسیر تحول</h2><p>با ترکیب آموزش، هوش مصنوعی و فناوری اطلاعات، مسیر رشد افراد، سازمان‌ها و کسب‌وکارها را هموار می‌کنیم.</p></div>
+          <div class="cards" id="services">
+            <article class="card tech-card" style="--i:0">
+              <div class="card-copy">
+                <div class="card-head"><img src="assets/icons/card-badge-infrastructure.png" width="168" height="180" alt="" aria-hidden="true"><h3>زیرساخت و خدمات فناوری اطلاعات</h3></div>
+                <p>ارائه و مدیریت زیرساخت‌های سخت‌افزاری و شبکه، مراکز داده، اینترنت اشیا و خدمات پشتیبانی فناوری اطلاعات</p>
+                <a href="#contact" data-contact class="more">مشاهده بیشتر <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5m7-7-7 7 7 7"/></svg></a>
+              </div>
+              <div class="card-illustration"><img loading="lazy" src="assets/illustrations/it-cloud-servers.png" alt="تصویر سه‌بعدی سرورهای شبکه و سرویس‌های ابری" width="477" height="459"></div>
+            </article>
+            <article class="card ai-card" style="--i:1">
+              <div class="card-copy">
+                <div class="card-head"><img src="assets/icons/card-badge-ai.png" width="168" height="184" alt="" aria-hidden="true"><h3>هوش مصنوعی و تحقیق‌وتوسعه</h3></div>
+                <p>طراحی و پیاده‌سازی راهکارهای مبتنی بر هوش مصنوعی و تحقیق و توسعه در حوزه‌های نوین فناوری</p>
+                <a href="#contact" data-contact class="more">مشاهده بیشتر <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5m7-7-7 7 7 7"/></svg></a>
+              </div>
+              <div class="card-illustration"><img loading="lazy" src="assets/illustrations/ai-brain.png" alt="مغز دیجیتال هولوگرافیک سه‌بعدی" width="573" height="471"></div>
+            </article>
+            <article class="card edu-card" style="--i:2">
+              <div class="card-copy">
+                <div class="card-head"><img src="assets/icons/card-badge-education.png" width="164" height="184" alt="" aria-hidden="true"><h3>آموزش و فناوری‌های یادگیری</h3></div>
+                <p>ارائه دوره‌های آموزشی و مهارتی، پلتفرم‌های یادگیری، محتوای دیجیتال و اتصال به فرصت‌های شغلی</p>
+                <a href="#contact" data-contact class="more">مشاهده بیشتر <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5m7-7-7 7 7 7"/></svg></a>
+              </div>
+              <div class="card-illustration"><img loading="lazy" src="assets/illustrations/education-books.png" alt="کتاب‌های آموزشی با کلاه فارغ‌التحصیلی سه‌بعدی" width="537" height="483"></div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+    <dialog id="contact-dialog" aria-labelledby="contact-title"><h2 id="contact-title">ارتباط با آوین</h2><p>این نسخه، پیش‌نمایش رابط کاربری آوین است. برای فعال‌سازی راه‌های ارتباطی و ثبت درخواست، اطلاعات تماس یا نشانی سامانه مربوطه باید به سایت افزوده شود.</p><button class="close" type="button">بستن</button></dialog>
+  </div>
+  <script>
+    (()=>{
+      const header=document.getElementById('header');
+      const btn=document.getElementById('menu-button');
+      const sheet=document.getElementById('mobile-menu');
+      const dialog=document.getElementById('contact-dialog');
+      function setMenu(open){header.dataset.open=String(open);btn.setAttribute('aria-expanded',String(open));btn.setAttribute('aria-label',open?'بستن فهرست':'باز کردن فهرست');sheet.inert=!open;}
+      btn.addEventListener('click',(event)=>{event.stopPropagation();setMenu(header.dataset.open!=='true');});
+      document.addEventListener('click',(event)=>{if(!header.contains(event.target))setMenu(false);});
+      sheet.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+      document.addEventListener('keydown',event=>{if(event.key==='Escape')setMenu(false);});
+      document.querySelectorAll('[data-contact]').forEach(a=>a.addEventListener('click',event=>{event.preventDefault();setMenu(false);if(typeof dialog.showModal==='function')dialog.showModal();}));
+      dialog.querySelector('button.close').addEventListener('click',()=>dialog.close());
+      dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close();});
+      setMenu(false);
+    })();
+  </script>
+</body>
+</html>
