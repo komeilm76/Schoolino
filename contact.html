@@ -6,10 +6,31 @@
   <meta name="theme-color" content="#03132d">
   <meta name="description" content="تماس با آوین؛ فرم ارتباط، موضوعات همکاری و راهنمای ارسال پیام در اکوسیستم آموزش و فناوری آوین.">
   <title>تماس با ما | آوین</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <link rel="canonical" href="https://komeilm76.github.io/Schoolino/contact.html">
+  <meta name="color-scheme" content="dark">
+  <meta name="format-detection" content="telephone=no">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="آوین">
+  <meta property="og:locale" content="fa_IR">
+  <meta property="og:title" content="تماس با ما | آوین">
+  <meta property="og:description" content="تماس با آوین؛ فرم ارتباط، موضوعات همکاری و راهنمای ارسال پیام در اکوسیستم آموزش و فناوری آوین.">
+  <meta property="og:url" content="https://komeilm76.github.io/Schoolino/contact.html">
+  <meta property="og:image" content="https://komeilm76.github.io/Schoolino/assets/brand/og-cover.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="تماس با ما | آوین">
+  <meta name="twitter:description" content="تماس با آوین؛ فرم ارتباط، موضوعات همکاری و راهنمای ارسال پیام در اکوسیستم آموزش و فناوری آوین.">
+  <meta name="twitter:image" content="https://komeilm76.github.io/Schoolino/assets/brand/og-cover.jpg">
+  <link rel="icon" href="assets/brand/icon/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/brand/icon/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/brand/icon/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/brand/icon/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/vazirmatn-variable.woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/foundation.css">
   <link rel="stylesheet" href="assets/css/service-pages.css">
+  <link rel="stylesheet" href="assets/css/contact-form.css">
   <script src="assets/js/site-navigation.js" defer></script>
   <script src="assets/js/contact-form.js" defer></script>
 </head>
@@ -19,7 +40,7 @@
     <header class="header" id="header" data-open="false">
       <div class="container header-inner">
         <a class="brand" href="index.html" aria-label="آوین، صفحه اصلی">
-          <img src="assets/brand/avin-logo-transparent.png" width="594" height="231" alt="نشان و نام آوین" fetchpriority="high">
+          <picture><source srcset="assets/brand/avin-logo-transparent.webp" type="image/webp"><img src="assets/brand/avin-logo-transparent.png" width="594" height="231" alt="آوین" fetchpriority="high" decoding="async"></picture>
         </a>
         <nav class="navigation" aria-label="ناوبری اصلی">
           <a href="index.html#home">خانه</a><a href="index.html#about">درباره آوین</a><a href="index.html#services">حوزه‌های فعالیت</a><a href="index.html#services">راهکارها</a><a class="active" href="contact.html">تماس با ما</a>
@@ -57,36 +78,89 @@
           <p class="service-description">موضوع پیام خود را انتخاب کنید و توضیح کوتاهی درباره درخواستتان بنویسید. این صفحه برای شروع گفت‌وگو درباره حوزه‌های فعالیت، مسیرهای تحول و همکاری با آوین طراحی شده است.</p>
         </section>
         <section class="contact-grid" aria-label="فرم و راهنمای تماس">
-          <form class="contact-panel" id="contact-form" novalidate>
-            <h2 class="section-heading">ارسال پیام</h2>
-            <div class="field">
-              <label for="name">نام و نام خانوادگی</label>
-              <input id="name" name="name" type="text" autocomplete="name" required>
+          <form class="form-card" id="contact-form" novalidate>
+            <div class="form-head">
+              <span class="form-head-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6.5A2.5 2.5 0 0 1 5.5 4h13A2.5 2.5 0 0 1 21 6.5v11a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 17.5z"/><path d="m3.8 5.6 7.1 5.6a1.8 1.8 0 0 0 2.2 0l7.1-5.6"/></svg>
+              </span>
+              <div class="form-head-text">
+                <h2 class="section-heading">ارسال پیام</h2>
+                <p>چهار فیلد کوتاه کافی است. هرچه موضوع دقیق‌تر باشد، گفت‌وگو سریع‌تر به نتیجه می‌رسد.</p>
+              </div>
             </div>
-            <div class="field">
-              <label for="email">ایمیل</label>
-              <input id="email" name="email" type="email" autocomplete="email" required>
+            <div class="form-body">
+              <div class="form-grid">
+                <div class="field" id="field-name">
+                  <div class="field-label">
+                    <label for="name">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                      نام و نام خانوادگی<span class="required-mark" aria-hidden="true">*</span>
+                    </label>
+                  </div>
+                  <input id="name" name="name" type="text" autocomplete="name" placeholder="مثلاً سارا محمدی" required minlength="3" maxlength="80" aria-describedby="error-name">
+                  <p class="field-error" id="error-name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5M12 16.2h.01"/></svg><span></span></p>
+                </div>
+                <div class="field" id="field-email">
+                  <div class="field-label">
+                    <label for="email">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.8 6.5 8.2 6 8.2-6"/></svg>
+                      ایمیل<span class="required-mark" aria-hidden="true">*</span>
+                    </label>
+                  </div>
+                  <input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="name@example.com" dir="ltr" required maxlength="120" aria-describedby="error-email">
+                  <p class="field-error" id="error-email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5M12 16.2h.01"/></svg><span></span></p>
+                </div>
+                <div class="field wide" id="field-subject">
+                  <div class="field-label">
+                    <label for="subject">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h6"/></svg>
+                      موضوع پیام<span class="required-mark" aria-hidden="true">*</span>
+                    </label>
+                  </div>
+                  <div class="select-wrap">
+                    <select id="subject" name="subject" required aria-describedby="error-subject">
+                      <option value="">یکی از حوزه‌های زیر را انتخاب کنید</option>
+                      <option value="cooperation">همکاری و مشاوره</option>
+                      <option value="education">آموزش و فناوری‌های یادگیری</option>
+                      <option value="ai">هوش مصنوعی و تحقیق‌وتوسعه</option>
+                      <option value="it">زیرساخت و خدمات فناوری اطلاعات</option>
+                      <option value="media">رسانه آموزشی</option>
+                      <option value="career">کاریابی و توسعه مسیر شغلی</option>
+                      <option value="other">سایر موضوع‌ها</option>
+                    </select>
+                  </div>
+                  <p class="field-error" id="error-subject"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5M12 16.2h.01"/></svg><span></span></p>
+                </div>
+                <div class="field wide" id="field-message">
+                  <div class="field-label">
+                    <label for="message">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-8 8H8l-5 3 1.4-4.6A8 8 0 0 1 13 4a8 8 0 0 1 8 8z"/></svg>
+                      متن پیام<span class="required-mark" aria-hidden="true">*</span>
+                    </label>
+                    <span class="field-hint counter" id="message-counter" aria-hidden="true">۰ / ۱۰۰۰</span>
+                  </div>
+                  <textarea id="message" name="message" rows="6" required minlength="20" maxlength="1000" placeholder="هدف، سازمان یا پروژه و نتیجه‌ای که انتظار دارید را کوتاه بنویسید." aria-describedby="error-message message-help"></textarea>
+                  <p class="field-hint" id="message-help">حداقل ۲۰ نویسه. <span class="sr-only">حداکثر ۱۰۰۰ نویسه.</span></p>
+                  <p class="field-error" id="error-message"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5M12 16.2h.01"/></svg><span></span></p>
+                </div>
+              </div>
+              <div class="form-notice">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5M12 7.8h.01"/></svg>
+                <p><strong>این فرم هنوز ارسال نمی‌شود.</strong> سایت به سامانه دریافت پیام متصل نیست. پس از تکمیل، می‌توانید متن پیام را کپی کنید و از راه ارتباطی رسمی آوین بفرستید.</p>
+              </div>
+              <div class="form-actions">
+                <button class="btn btn-main form-submit" type="submit" id="submit-button">
+                  <svg class="send-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 3 10.5 13.5M21 3l-6.8 18-3.7-7.5L3 9.8z"/></svg>
+                  <svg class="spinner" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9" /></svg>
+                  <span id="submit-label">بررسی و آماده‌سازی پیام</span>
+                </button>
+                <button class="form-secondary" type="button" id="copy-button">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2.2"/><path d="M5 15H4.5A1.5 1.5 0 0 1 3 13.5v-9A1.5 1.5 0 0 1 4.5 3h9A1.5 1.5 0 0 1 15 4.5V5"/></svg>
+                  کپی متن پیام
+                </button>
+              </div>
+              <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
             </div>
-            <div class="field">
-              <label for="subject">موضوع</label>
-              <select id="subject" name="subject" required>
-                <option value="">انتخاب کنید</option>
-                <option value="cooperation">همکاری و مشاوره</option>
-                <option value="education">آموزش و فناوری‌های یادگیری</option>
-                <option value="ai">هوش مصنوعی و تحقیق‌وتوسعه</option>
-                <option value="it">زیرساخت و خدمات فناوری اطلاعات</option>
-                <option value="media">رسانه آموزشی</option>
-                <option value="career">کاریابی و توسعه مسیر شغلی</option>
-                <option value="other">سایر موضوع‌ها</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="message">پیام</label>
-              <textarea id="message" name="message" rows="6" required></textarea>
-            </div>
-            <button class="btn btn-main" type="submit">ارسال پیام</button>
-            <p class="form-note">در این نسخه، فرم به سامانه ارسال پیام متصل نیست. برای فعال‌سازی، اطلاعات تماس رسمی یا سرویس دریافت فرم باید به سایت افزوده شود.</p>
-            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
           </form>
           <aside class="contact-aside" aria-labelledby="contact-guide-title">
             <h2 class="section-heading" id="contact-guide-title">پیش از ارسال پیام</h2>

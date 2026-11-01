@@ -1,8 +1,9 @@
-/* Accessible mobile navigation shared by the internal pages. */
+/* Shared behaviour: accessible mobile navigation + whole-card clicking. */
 (() => {
   const header = document.getElementById('header');
   const button = document.getElementById('menu-button');
   const menu = document.getElementById('mobile-menu');
+  if (!header || !button || !menu) return;
 
   function setMenu(open) {
     header.dataset.open = String(open);
@@ -28,4 +29,21 @@
     }
   });
   setMenu(false);
+})();
+
+/* Whole-card clicking for the ecosystem cards.
+   The real anchor stays the semantic, keyboard and screen-reader target; this
+   only forwards plain mouse clicks so the artwork never needs an overlay. */
+(() => {
+  document.querySelectorAll('.card').forEach((card) => {
+    const link = card.querySelector('a.more');
+    if (!link) return;
+    card.addEventListener('click', (event) => {
+      if (event.target.closest('a, button')) return;
+      // Never hijack a text selection.
+      const selection = window.getSelection();
+      if (selection && String(selection).length) return;
+      link.click();
+    });
+  });
 })();

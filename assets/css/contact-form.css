@@ -1,0 +1,290 @@
+/* ==========================================================================
+   Avin — contact form
+   Designed as a single, calm surface: header → field grid → notice → action.
+   Every state (rest, hover, focus, filled, invalid, busy, done) is specified.
+   Requires foundation.css.
+   ========================================================================== */
+
+.form-card {
+  --field-bg: rgba(2, 15, 37, .78);
+  --field-line: rgba(66, 143, 214, .45);
+  --field-line-hover: rgba(66, 170, 235, .72);
+  --danger: #ff9ea6;
+  --danger-line: rgba(255, 126, 138, .8);
+
+  position: relative;
+  overflow: hidden;
+  border: 1.5px solid var(--line-strong);
+  border-radius: 22px;
+  background:
+    radial-gradient(120% 80% at 100% 0%, rgba(6, 105, 190, .18), transparent 60%),
+    linear-gradient(160deg, #0e2a58 0%, #081d43 34%, #04132e 100%);
+  box-shadow: var(--shadow-panel), inset 0 1px 0 rgba(122, 225, 255, .16);
+}
+
+/* A hairline of brand light along the top edge. */
+.form-card::before {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(4, 231, 243, .75) 35%, rgba(6, 142, 252, .75) 65%, transparent);
+}
+
+/* --------------------------------------------------------------------------
+   Header
+   -------------------------------------------------------------------------- */
+.form-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 24px 26px 20px;
+  border-bottom: 1px solid rgba(61, 126, 217, .28);
+  background: linear-gradient(180deg, rgba(4, 32, 74, .5), transparent);
+}
+.form-head-icon {
+  width: 46px;
+  height: 46px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  border: 1px solid rgba(4, 231, 243, .38);
+  background: linear-gradient(150deg, rgba(4, 231, 243, .16), rgba(6, 142, 252, .07));
+  color: var(--cyan);
+  box-shadow: inset 0 1px 0 rgba(160, 245, 255, .22);
+}
+.form-head-icon svg { width: 23px; height: 23px; }
+.form-head-text { min-width: 0; }
+.form-head .section-heading { margin: 0; font-size: 23px; line-height: 1.5; }
+.form-head p { margin: 5px 0 0; color: var(--muted); font-size: 13.5px; font-weight: 500; line-height: 1.9; text-wrap: pretty; }
+
+.form-body { padding: 22px 26px 26px; }
+
+/* --------------------------------------------------------------------------
+   Field grid
+   -------------------------------------------------------------------------- */
+.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 18px; }
+.field { display: flex; flex-direction: column; gap: 7px; margin-bottom: 14px; min-width: 0; }
+.field.wide { grid-column: 1 / -1; }
+
+.field-label { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.field label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #e6eeff;
+  font-size: 13.5px;
+  font-weight: 700;
+  line-height: 1.6;
+}
+.field label svg { width: 15px; height: 15px; flex: none; color: var(--cyan); opacity: .85; }
+.required-mark { color: var(--cyan); font-weight: 900; }
+.field-hint { color: var(--muted-strong); font-size: 11.5px; font-weight: 500; line-height: 1.6; font-variant-numeric: tabular-nums; }
+
+/* Shared control shell */
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  min-height: 50px;
+  border: 1px solid var(--field-line);
+  border-radius: var(--r-md);
+  padding: 12px 15px;
+  background: var(--field-bg);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.7;
+  transition: border-color .18s ease, box-shadow .18s ease, background .18s ease;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.field textarea { min-height: 148px; resize: vertical; padding-block: 13px; }
+
+.field input::placeholder,
+.field textarea::placeholder { color: #7d90b8; font-weight: 400; opacity: 1; }
+
+.field input:hover,
+.field select:hover,
+.field textarea:hover { border-color: var(--field-line-hover); }
+
+.field input:focus-visible,
+.field select:focus-visible,
+.field textarea:focus-visible {
+  outline: none;
+  border-color: var(--cyan);
+  background: rgba(3, 21, 48, .95);
+  box-shadow: 0 0 0 3px rgba(4, 231, 243, .18), inset 0 0 12px rgba(4, 231, 243, .07);
+}
+
+/* Autofill should not turn the field white on dark UI. */
+.field input:-webkit-autofill {
+  -webkit-text-fill-color: var(--text);
+  -webkit-box-shadow: 0 0 0 1000px #08203f inset;
+  caret-color: var(--text);
+}
+
+/* Select: custom chevron that sits on the RTL trailing edge. */
+.select-wrap { position: relative; }
+.select-wrap select { padding-inline-end: 42px; cursor: pointer; }
+.select-wrap::after {
+  content: "";
+  position: absolute;
+  inset-inline-end: 17px;
+  top: 50%;
+  width: 9px; height: 9px;
+  margin-top: -8px;
+  border-right: 2px solid var(--cyan);
+  border-bottom: 2px solid var(--cyan);
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+.field select option { background: #08203f; color: var(--text); }
+.field select:invalid, .field select option[value=""] { color: #8fa2c6; }
+
+/* Character counter */
+.counter { direction: ltr; font-variant-numeric: tabular-nums; }
+.counter[data-state="near"] { color: var(--gold); }
+.counter[data-state="over"] { color: var(--danger); }
+
+/* --------------------------------------------------------------------------
+   Inline validation
+   -------------------------------------------------------------------------- */
+.field-error {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  color: var(--danger);
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1.7;
+}
+.field-error svg { width: 14px; height: 14px; flex: none; }
+.field[data-invalid="true"] .field-error { display: flex; }
+.field[data-invalid="true"] input,
+.field[data-invalid="true"] select,
+.field[data-invalid="true"] textarea {
+  border-color: var(--danger-line);
+  background: rgba(48, 12, 26, .45);
+}
+.field[data-invalid="true"] input:focus-visible,
+.field[data-invalid="true"] select:focus-visible,
+.field[data-invalid="true"] textarea:focus-visible { box-shadow: 0 0 0 3px rgba(255, 126, 138, .2); }
+.field[data-invalid="true"] label svg { color: var(--danger); }
+
+/* --------------------------------------------------------------------------
+   Honest delivery notice — designed, not an afterthought
+   -------------------------------------------------------------------------- */
+.form-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  margin: 6px 0 20px;
+  padding: 14px 16px;
+  border: 1px solid rgba(255, 207, 69, .3);
+  border-radius: var(--r-md);
+  background: linear-gradient(180deg, rgba(255, 207, 69, .09), rgba(255, 207, 69, .04));
+}
+.form-notice svg { width: 19px; height: 19px; flex: none; margin-top: 2px; color: var(--gold); }
+.form-notice p { margin: 0; color: #f0e6cd; font-size: 12.5px; font-weight: 500; line-height: 1.95; text-wrap: pretty; }
+.form-notice strong { color: #ffe6a3; font-weight: 800; }
+
+/* --------------------------------------------------------------------------
+   Actions
+   -------------------------------------------------------------------------- */
+.form-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.form-submit {
+  position: relative;
+  flex: 1 1 220px;
+  min-height: 54px;
+  justify-content: center;
+  gap: 10px;
+  font-size: 16px;
+  letter-spacing: -.01em;
+}
+.form-submit svg { width: 20px; height: 20px; }
+.form-submit[data-busy="true"] { pointer-events: none; opacity: .8; }
+.form-submit .spinner { display: none; animation: form-spin .8s linear infinite; }
+.form-submit[data-busy="true"] .spinner { display: block; }
+.form-submit[data-busy="true"] .send-icon { display: none; }
+@keyframes form-spin { to { transform: rotate(360deg); } }
+
+.form-secondary {
+  min-height: 54px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 18px;
+  border: 1px solid var(--field-line);
+  border-radius: var(--r-pill);
+  background: transparent;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 700;
+  transition: color .2s ease, border-color .2s ease, background .2s ease;
+}
+.form-secondary:hover { color: var(--cyan-soft); border-color: var(--cyan); background: rgba(0, 125, 191, .16); }
+.form-secondary svg { width: 17px; height: 17px; flex: none; }
+
+/* --------------------------------------------------------------------------
+   Live status region
+   -------------------------------------------------------------------------- */
+.form-status {
+  display: none;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 18px 0 0;
+  padding: 14px 16px;
+  border: 1px solid rgba(4, 231, 243, .35);
+  border-radius: var(--r-md);
+  background: rgba(4, 231, 243, .08);
+  color: #d9fbff;
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1.95;
+  text-wrap: pretty;
+}
+.form-status:not(:empty) { display: flex; }
+.form-status::before {
+  content: "";
+  width: 8px; height: 8px;
+  flex: none;
+  margin-top: 9px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 10px rgba(4, 231, 243, .8);
+}
+.form-status[data-tone="error"] { border-color: var(--danger-line); background: rgba(255, 126, 138, .09); color: #ffdbdf; }
+.form-status[data-tone="error"]::before { background: var(--danger); box-shadow: 0 0 10px rgba(255, 126, 138, .7); }
+.form-status[data-tone="ok"] { border-color: rgba(96, 235, 170, .45); background: rgba(96, 235, 170, .1); color: #d6ffe9; }
+.form-status[data-tone="ok"]::before { background: #5ce8a6; box-shadow: 0 0 10px rgba(96, 235, 170, .75); }
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+@media (max-width: 1199px) {
+  .form-head { padding: 22px 22px 18px; }
+  .form-body { padding: 20px 22px 22px; }
+}
+
+@media (max-width: 767px) {
+  .form-card { border-radius: 18px; }
+  .form-head { padding: 19px 17px 16px; gap: 11px; }
+  .form-head-icon { width: 40px; height: 40px; border-radius: 12px; }
+  .form-head-icon svg { width: 20px; height: 20px; }
+  .form-head .section-heading { font-size: 20px; }
+  .form-head p { font-size: 12.5px; }
+  .form-body { padding: 17px 17px 20px; }
+  .form-grid { grid-template-columns: 1fr; gap: 0; }
+  .field input, .field select, .field textarea { font-size: 16px; } /* prevents iOS zoom-on-focus */
+  .field textarea { min-height: 132px; }
+  .form-notice { padding: 12px 13px; margin-bottom: 16px; }
+  .form-notice p { font-size: 12px; line-height: 1.9; }
+  .form-actions { flex-direction: column; align-items: stretch; gap: 10px; }
+  .form-submit { flex: none; width: 100%; min-height: 52px; }
+  .form-secondary { justify-content: center; min-height: 48px; }
+}

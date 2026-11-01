@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://komeilm76.github.io/Schoolino/sitemap.xml
