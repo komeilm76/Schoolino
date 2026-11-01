@@ -1,9 +1,8 @@
-/* Accessible mobile navigation and the existing preview contact dialog. */
+/* Accessible mobile navigation shared by the internal pages. */
 (() => {
   const header = document.getElementById('header');
   const button = document.getElementById('menu-button');
   const menu = document.getElementById('mobile-menu');
-  const dialog = document.getElementById('contact-dialog');
 
   function setMenu(open) {
     header.dataset.open = String(open);
@@ -27,17 +26,6 @@
       setMenu(false);
       button.focus();
     }
-  });
-  document.querySelectorAll('[data-contact]').forEach((link) => {
-    link.addEventListener('click', (event) => {
-      event.preventDefault();
-      setMenu(false);
-      if (typeof dialog.showModal === 'function' && !dialog.open) dialog.showModal();
-    });
-  });
-  dialog.querySelector('button.close').addEventListener('click', () => dialog.close());
-  dialog.addEventListener('click', (event) => {
-    if (event.target === dialog) dialog.close();
   });
   setMenu(false);
 })();

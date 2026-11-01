@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#03132d">
+  <meta name="description" content="تماس با آوین؛ فرم ارتباط، موضوعات همکاری و راهنمای ارسال پیام در اکوسیستم آموزش و فناوری آوین.">
+  <title>تماس با ما | آوین</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/service-pages.css">
+  <script src="assets/js/site-navigation.js" defer></script>
+  <script src="assets/js/contact-form.js" defer></script>
+</head>
+<body>
+  <a href="#main-content" class="skip">رفتن به محتوای اصلی</a>
+  <div class="site">
+    <header class="header" id="header" data-open="false">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="آوین، صفحه اصلی">
+          <img src="assets/brand/avin-logo-transparent.png" width="594" height="231" alt="نشان و نام آوین" fetchpriority="high">
+        </a>
+        <nav class="navigation" aria-label="ناوبری اصلی">
+          <a href="index.html#home">خانه</a><a href="index.html#about">درباره آوین</a><a href="index.html#services">حوزه‌های فعالیت</a><a href="index.html#services">راهکارها</a><a class="active" href="contact.html">تماس با ما</a>
+        </nav>
+        <div class="header-left">
+          <a class="slogan" href="index.html#about" title="آشنایی با آوین">
+            <span>با <span class="cyan-word">هدف</span> تا <span class="cyan-word">هدف</span></span>
+            <svg class="target" viewBox="0 0 48 48" aria-hidden="true" fill="none">
+              <circle cx="22" cy="26" r="19.2" stroke="#02E9F5" stroke-width="3.4"/>
+              <circle cx="22" cy="26" r="12.8" stroke="#13BFFD" stroke-width="3.4"/>
+              <circle cx="22" cy="26" r="6" stroke="#79FFFF" stroke-width="3.3"/>
+              <path d="M22 26 38 8" stroke="#FFE886" stroke-width="3.8" stroke-linecap="round"/>
+              <path d="M35 7 43 3 40 12 34 13Z" fill="#FFD035" stroke="#FFC538" stroke-width="1.2"/>
+            </svg>
+          </a>
+          <button class="menu-button" type="button" id="menu-button" aria-controls="mobile-menu" aria-expanded="false" aria-label="باز کردن فهرست">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+      <nav class="mobile-menu" id="mobile-menu" aria-label="منوی موبایل" inert>
+        <a href="index.html#home">خانه</a><a href="index.html#about">درباره آوین</a><a href="index.html#services">حوزه‌های فعالیت</a><a href="index.html#services">راهکارها</a><a class="active" href="contact.html">تماس با ما</a>
+      </nav>
+    </header>
+    <main class="service-main" id="main-content">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="مسیر صفحه">
+          <a href="index.html">خانه</a><span aria-hidden="true">/</span>
+          <span aria-current="page">تماس با ما</span>
+        </nav>
+        <section class="contact-hero" aria-labelledby="contact-title">
+          <p class="eyebrow">ارتباط با آوین</p>
+          <h1 id="contact-title">تماس با ما</h1>
+          <p class="service-subtitle">برای گفت‌وگو درباره آموزش، فناوری و همکاری با آوین</p>
+          <p class="service-description">موضوع پیام خود را انتخاب کنید و توضیح کوتاهی درباره درخواستتان بنویسید. این صفحه برای شروع گفت‌وگو درباره حوزه‌های فعالیت، مسیرهای تحول و همکاری با آوین طراحی شده است.</p>
+        </section>
+        <section class="contact-grid" aria-label="فرم و راهنمای تماس">
+          <form class="contact-panel" id="contact-form" novalidate>
+            <h2 class="section-heading">ارسال پیام</h2>
+            <div class="field">
+              <label for="name">نام و نام خانوادگی</label>
+              <input id="name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="email">ایمیل</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label for="subject">موضوع</label>
+              <select id="subject" name="subject" required>
+                <option value="">انتخاب کنید</option>
+                <option value="cooperation">همکاری و مشاوره</option>
+                <option value="education">آموزش و فناوری‌های یادگیری</option>
+                <option value="ai">هوش مصنوعی و تحقیق‌وتوسعه</option>
+                <option value="it">زیرساخت و خدمات فناوری اطلاعات</option>
+                <option value="media">رسانه آموزشی</option>
+                <option value="career">کاریابی و توسعه مسیر شغلی</option>
+                <option value="other">سایر موضوع‌ها</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="message">پیام</label>
+              <textarea id="message" name="message" rows="6" required></textarea>
+            </div>
+            <button class="btn btn-main" type="submit">ارسال پیام</button>
+            <p class="form-note">در این نسخه، فرم به سامانه ارسال پیام متصل نیست. برای فعال‌سازی، اطلاعات تماس رسمی یا سرویس دریافت فرم باید به سایت افزوده شود.</p>
+            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+          </form>
+          <aside class="contact-aside" aria-labelledby="contact-guide-title">
+            <h2 class="section-heading" id="contact-guide-title">پیش از ارسال پیام</h2>
+            <ul class="service-points contact-points">
+              <li class="service-point"><h3>موضوع را دقیق انتخاب کنید</h3><p>انتخاب حوزه مرتبط کمک می‌کند پیام شما سریع‌تر به بخش درست بررسی شود.</p></li>
+              <li class="service-point"><h3>هدف و نیازتان را کوتاه بنویسید</h3><p>توضیح دهید برای چه سازمان، پروژه یا مسیر یادگیری به گفت‌وگو نیاز دارید.</p></li>
+              <li class="service-point"><h3>راه درست را ادامه دهید</h3><p>اگر با یکی از مسیرهای تحول آشنا نیستید، صفحه‌های مرتبط را ببینید و سپس موضوع مناسب را انتخاب کنید.</p></li>
+            </ul>
+            <nav class="related-links" aria-label="مسیرهای تحول">
+              <a href="it-infrastructure-services.html">زیرساخت و خدمات فناوری اطلاعات<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5m7-7-7 7 7 7"/></svg></a>
+              <a href="ai-research-development.html">هوش مصنوعی و تحقیق‌وتوسعه<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5m7-7-7 7 7 7"/></svg></a>
+              <a href="education-learning-technologies.html">آموزش و فناوری‌های یادگیری<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5m7-7-7 7 7 7"/></svg></a>
+            </nav>
+          </aside>
+        </section>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p>آوین؛ اکوسیستم یکپارچه آموزش و فناوری</p>
+        <a href="index.html">بازگشت به صفحه اصلی</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
