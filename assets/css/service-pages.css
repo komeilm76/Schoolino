@@ -65,6 +65,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--cyan-soft); out
 .service-art { margin: 0; height: 360px; min-width: 0; display: flex; align-items: center; justify-content: center; }
 .service-art img { width: 90%; height: 100%; object-fit: contain; filter: drop-shadow(0 0 16px rgba(21,143,255,.2)); }
 .service-art.ecosystem-art img { width: 100%; }
+.service-art.topic-art img { width: min(100%, 420px); }
 .overview { padding: 5px 0 40px; }
 .section-heading { margin: 0 0 19px; font-size: 25px; font-weight: 900; line-height: 1.6; }
 .service-points { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; padding: 0; margin: 0; list-style: none; }
